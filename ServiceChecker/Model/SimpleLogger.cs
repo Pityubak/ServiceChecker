@@ -2,7 +2,7 @@
 using System.IO;
 
 
-namespace EsetChecker
+namespace ServiceChecker.Model
 {
     class SimpleLogger
     {
@@ -22,11 +22,8 @@ namespace EsetChecker
                     sw.WriteLine(message);
                 }
             }
-            catch (Exception)
-            {
-                
-            }
-          
+            catch (Exception) { }
+
         }
     }
 }

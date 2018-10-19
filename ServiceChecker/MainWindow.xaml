@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServiceChecker"
+        xmlns:views="clr-namespace:ServiceChecker.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ServiceChecker" Height="450" Width="806" Icon="logo.ico" ResizeMode="CanMinimize" Background="#FF6A8AA0">
+
     <Grid>
-        
+
+        <views:ServiceView x:Name="ServiceControl" Loaded="ServiceLoaded"  HorizontalAlignment="Left"/>
     </Grid>
 </Window>

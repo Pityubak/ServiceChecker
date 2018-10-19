@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="ServiceChecker.View.ServiceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ServiceChecker.View"
+             xmlns:viewmodel="clr-namespace:ServiceChecker.ViewModel"
+             xmlns:data="clr-namespace:ServiceChecker.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" Width="741">
+    <UserControl.DataContext>
+        <viewmodel:ServiceViewModel/>
+    </UserControl.DataContext>
+ 
+    <Grid>
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-50,0">
+            <StackPanel>
+                <DataGrid ItemsSource="{Binding Path=Services}" SelectedItem="{Binding Path=SelectedModel,UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" VerticalAlignment="Stretch" Width="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Displayname"  IsReadOnly="True" >
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Grid Background="{Binding Path=Color}">
+                                        <TextBlock Text="{Binding Path=DisplayName}"></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Servicename"  IsReadOnly="True" >
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Grid Background="{Binding Path=Color}">
+                                        <TextBlock Text="{Binding Path=ServiceName}"></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Status"  IsReadOnly="True" MinWidth="65">
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Grid Background="{Binding Path=Color}">
+                                        <TextBlock Text="{Binding Path=Status}"></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Start/Stop"  IsReadOnly="True" MinWidth="75" >
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Grid Background="{Binding Path=Color}">
+                                        <Button Content="{Binding Btntext}" Background="{Binding Color}"
+                                                Command="{Binding Path=DataContext.StopStartCommand,RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Width="75" Height="25"></Button>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
+
+       
+
+    </Grid>
+
+       
+
+</UserControl>
