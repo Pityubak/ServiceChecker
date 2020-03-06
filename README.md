@@ -1,2 +1,2 @@
 # ServiceChecker
-Working with admin rights!
+ServiceChecker works with administrator privileges!
